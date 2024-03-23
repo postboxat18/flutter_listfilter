@@ -1,39 +1,49 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+# Flutter Filter Based on List
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+## Contents
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+This package provides a Flutter widget for filtering based on a list of parameters. It includes:
 
-## Features
+- **Auto-suggestions:** Dynamically loads filter options based on the provided list.
+- **Easy Integration:** Seamlessly integrate the filter widget into your Flutter application.
+- **Customization:** Customize the primary color, line color, and other visual aspects to match your app's design.
+- **Efficient Filtering:** Quickly filter through options to find the desired selection.
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+## Example
 
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+If you prefer using radio buttons:
 
 ```dart
-const like = 'sample';
+FlutterListFilter(
+  isRadio: true,
+  primaryColor: Colors.blue,
+  lineColor: Color(0xFFA9B5BB),
+  textList: textList,
+  filterHeaderList: filterHeaderList,
+  builder: (List<dynamic> textLoadList) {
+    // Your code here
+  },
+),
 ```
 
-## Additional information
+If you prefer using checkboxes:
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```dart
+FlutterListFilter(
+  isRadio: false,
+  primaryColor: Colors.blue,
+  lineColor: Color(0xFFA9B5BB),
+  textList: textList,
+  filterHeaderList: filterHeaderList,
+  builder: (List<dynamic> textLoadList) {
+    // Your code here
+  },
+),
+```
+
+![Example 1](https://github.com/postboxat18/flutter_listfilter/assets/77087523/3691893e-dce8-4e22-bf05-ebeec7154729)
+![Example 2](https://github.com/postboxat18/flutter_listfilter/assets/77087523/97fdd634-1aac-416e-8bdd-a270717924be)
+```
+
+Ensure that you replace `textList` and `filterHeaderList` with your own data lists. In the `builder` function, you can implement your logic based on the selected filter options. Don't forget to adjust the image URLs to point to your actual images.
