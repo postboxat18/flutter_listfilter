@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_listfilter/flutter_listfilter.dart';
 
 class FilterBasedList extends StatefulWidget {
   const FilterBasedList({super.key});
@@ -50,7 +51,7 @@ class _FilterBasedListState extends State<FilterBasedList> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //CHIP
-            FilterPackages(
+            FlutterListFilter(
               isRadio: true,
               primaryColor: Colors.blue,
               lineColor: Color(0xFFA9B5BB),

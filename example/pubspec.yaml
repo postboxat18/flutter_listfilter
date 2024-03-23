@@ -30,6 +30,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_listfilter:
+    git:
+      url: https://github.com/postboxat18/flutter_listfilter.git
 
 
   # The following adds the Cupertino Icons font to your application.
