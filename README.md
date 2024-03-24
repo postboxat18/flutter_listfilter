@@ -10,6 +10,39 @@ This package provides a Flutter widget for filtering based on a list of paramete
 - **Customization:** Customize the primary color, line color, and other visual aspects to match your app's design.
 - **Efficient Filtering:** Quickly filter through options to find the desired selection.
 
+Before using packages, please add the following `toJson` method to your `Module` class for getting key parameters and values:
+
+```dart
+class TextList {
+  final String fields;
+  final String doc;
+  final String createDate;
+  final String updateDate;
+  final String updatedBy;
+
+  TextList(
+      this.fields, this.doc, this.createDate, this.updateDate, this.updatedBy);
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['fields'] = fields;
+    data['doc'] = doc;
+    data['createDate'] = createDate;
+    data['updateDate'] = updateDate;
+    data['updatedBy'] = updatedBy;
+    return data;
+  }
+
+  dynamic get(String key) {
+    var mapRep = toJson();
+    if (mapRep.containsKey(key)) {
+      return mapRep[key];
+    }
+    //throw ArgumentError('filter=>getTaskTableList=>key not found=>$key');
+  }
+}
+```
+
 ## Example
 
 If you prefer using radio buttons:
