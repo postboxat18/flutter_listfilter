@@ -1,6 +1,6 @@
 name: flutter_listfilter
 description: "Flutter Filter Based on Given List"
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/postboxat18/flutter_listfilter.git
 
 environment:
