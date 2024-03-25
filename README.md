@@ -94,4 +94,3 @@ FlutterListFilter(
 ![Screencastfrom25-03-24102451AMIST-ezgif com-video-to-gif-converter](https://github.com/postboxat18/flutter_listfilter/assets/77087523/576e63fd-e560-4ac0-8a20-7c00d4f04fe1)
 
 ```
-
