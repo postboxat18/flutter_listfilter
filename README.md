@@ -45,6 +45,22 @@ class TextList {
 
 ## Example
 
+You can also use your widget, or else it is not necessary to pass the widget:
+
+```dart
+FlutterListFilter(
+  isRadio: true,
+  primaryColor: Colors.blue,
+  lineColor: Color(0xFFA9B5BB),
+  extraChipWidgets://your widgets
+  textList: textList,
+  filterHeaderList: filterHeaderList,
+  builder: (List<dynamic> textLoadList) {
+    // Your code here
+  },
+),
+```
+
 If you prefer using radio buttons:
 
 ```dart
@@ -74,9 +90,8 @@ FlutterListFilter(
   },
 ),
 ```
+![Screencastfrom25-03-24102346AMIST-ezgif com-video-to-gif-converter](https://github.com/postboxat18/flutter_listfilter/assets/77087523/0c11b544-bd28-455f-ae16-51e83bfac38c)
+![Screencastfrom25-03-24102451AMIST-ezgif com-video-to-gif-converter](https://github.com/postboxat18/flutter_listfilter/assets/77087523/576e63fd-e560-4ac0-8a20-7c00d4f04fe1)
 
-![Example 1](https://github.com/postboxat18/flutter_listfilter/assets/77087523/3691893e-dce8-4e22-bf05-ebeec7154729)
-![Example 2](https://github.com/postboxat18/flutter_listfilter/assets/77087523/97fdd634-1aac-416e-8bdd-a270717924be)
 ```
 
-Ensure that you replace `textList` and `filterHeaderList` with your own data lists. In the `builder` function, you can implement your logic based on the selected filter options. Don't forget to adjust the image URLs to point to your actual images.
