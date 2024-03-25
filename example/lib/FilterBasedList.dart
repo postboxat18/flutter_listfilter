@@ -56,6 +56,31 @@ class _FilterBasedListState extends State<FilterBasedList> {
               primaryColor: Colors.blue,
               lineColor: Color(0xFFA9B5BB),
               textList: textList,
+              extraChipWidgets: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                      elevation: 0,
+                      padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(55),
+                      )),
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "2012/02/20-2025/02/20",
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                      Icon(
+                        Icons.arrow_drop_down_rounded,
+                        color: Colors.black,
+                      ),
+                    ],
+                  )),
               filterHeaderList: filterHeaderList,
               builder: (List<dynamic> textLoadList) {
                 print("filterBasedList=>outSide=>${textLoadList.length}");
