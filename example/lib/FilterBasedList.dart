@@ -56,6 +56,7 @@ class _FilterBasedListState extends State<FilterBasedList> {
               primaryColor: Colors.blue,
               lineColor: Color(0xFFA9B5BB),
               textList: textList,
+
               filterHeaderList: filterHeaderList,
               builder: (List<dynamic> textLoadList) {
                 print("filterBasedList=>outSide=>${textLoadList.length}");

@@ -1,6 +1,8 @@
 library flutter_listfilter;
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'Bloc/flutter_list_filter_bloc.dart';
@@ -12,6 +14,7 @@ class FlutterListFilter extends StatefulWidget {
   final Color primaryColor;
   final Color lineColor;
   final bool isRadio;
+  final Widget extraChipWidgets;
 
   const FlutterListFilter({
     super.key,
@@ -21,6 +24,9 @@ class FlutterListFilter extends StatefulWidget {
     required this.primaryColor,
     required this.lineColor,
     required this.builder,
+    this.extraChipWidgets = const Row(
+      children: [],
+    ),
   });
 
   @override
@@ -125,11 +131,16 @@ class _FlutterListFilterState extends State<FlutterListFilter> {
             ),
           ),
         ],
+
         //FILTER
-        SingleChildScrollView(
+        Expanded(
+            child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
+              //USER FILTER
+              widget.extraChipWidgets,
+              //DYNAMIC FILTERS
               for (var key in map.entries) ...[
                 Padding(
                   padding: EdgeInsets.all(5),
@@ -149,12 +160,11 @@ class _FlutterListFilterState extends State<FlutterListFilter> {
                           elevation: 0,
                           padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
                           backgroundColor: Colors.white,
-                          side: BorderSide(color: Colors.transparent),
                           shape: RoundedRectangleBorder(
                             side: BorderSide(
                                 color: filterState.map[key.key] != null
                                     ? widget.primaryColor
-                                    : Colors.white),
+                                    : widget.lineColor),
                             borderRadius: BorderRadius.circular(55),
                           )),
                       child: Row(
@@ -180,7 +190,7 @@ class _FlutterListFilterState extends State<FlutterListFilter> {
               ]
             ],
           ),
-        ),
+        )),
       ],
     );
   }
