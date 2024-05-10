@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_listfilter/flutter_listfilter.dart';
 
 class FilterBasedList extends StatefulWidget {
@@ -51,112 +52,114 @@ class _FilterBasedListState extends State<FilterBasedList> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //CHIP
-            FlutterListFilter(
-              isRadio: false,
-              primaryColor: Colors.blue,
-              lineColor: Color(0xFFA9B5BB),
-              dynamicList: textList,
-              extraChipWidgets: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                      elevation: 0,
-                      padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
-                      backgroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        side: BorderSide(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(55),
-                      )),
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "2012/02/20-2025/02/20",
-                        style: TextStyle(
+            Expanded(
+              child: FlutterListFilter(
+                isRadio: false,
+                primaryColor: Colors.blue,
+                lineColor: Color(0xFFA9B5BB),
+                dynamicList: textList,
+                extraChipWidgets: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
+                        backgroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(55),
+                        )),
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "2012/02/20-2025/02/20",
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                        Icon(
+                          Icons.arrow_drop_down_rounded,
                           color: Colors.black,
                         ),
-                      ),
-                      Icon(
-                        Icons.arrow_drop_down_rounded,
-                        color: Colors.black,
-                      ),
-                    ],
-                  )),
-              filterHeaderList: filterHeaderList,
-              builder: (List<dynamic> textLoadList) {
-                print("filterBasedList=>outSide=>${textLoadList.length}");
-                return Expanded(
-                    child: textLoadList.isEmpty
-                        ? Center(
-                            child: Text("Empty Data"),
-                          )
-                        : ListView.builder(
-                            itemCount: textLoadList.length,
-                            itemBuilder: (context, index) => Card(
-                              child: Padding(
-                                padding: EdgeInsets.all(15),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Container(
-                                          width: 25,
-                                          height: 25,
-                                          margin: const EdgeInsets.fromLTRB(
-                                              0, 0, 10, 0),
-                                          decoration: const BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Colors.lightBlueAccent),
-                                          child: Padding(
-                                            padding: const EdgeInsets.fromLTRB(
-                                                0, 2, 0, 0),
-                                            child: Text(
-                                              textLoadList[index].updatedBy[0],
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                  color: Colors.white),
+                      ],
+                    )),
+                filterHeaderList: filterHeaderList,
+                builder: (List<dynamic> textLoadList) {
+                  print("filterBasedList=>outSide=>${textLoadList.length}");
+                  return Expanded(
+                      child: textLoadList.isEmpty
+                          ? Center(
+                              child: Text("Empty Data"),
+                            )
+                          : ListView.builder(
+                              itemCount: textLoadList.length,
+                              itemBuilder: (context, index) => Card(
+                                child: Padding(
+                                  padding: EdgeInsets.all(15),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Container(
+                                            width: 25,
+                                            height: 25,
+                                            margin: const EdgeInsets.fromLTRB(
+                                                0, 0, 10, 0),
+                                            decoration: const BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                color: Colors.lightBlueAccent),
+                                            child: Padding(
+                                              padding: const EdgeInsets.fromLTRB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                textLoadList[index].updatedBy[0],
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                        Text(
-                                          textLoadList[index].fields,
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        const Padding(
-                                          padding:
-                                              EdgeInsets.fromLTRB(5, 5, 2, 5),
-                                          child: Icon(
-                                            Icons.edit_document,
-                                            color: Colors.grey,
-                                            size: 15,
+                                          Text(
+                                            textLoadList[index].fields,
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold),
                                           ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 5, 5, 5),
-                                          child: Text(textLoadList[index].doc),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text(textLoadList[index].createDate),
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Text(
-                                              textLoadList[index].updateDate),
-                                        ),
-                                        Text(textLoadList[index].updatedBy),
-                                      ],
-                                    ),
-                                  ],
+                                          const Padding(
+                                            padding:
+                                                EdgeInsets.fromLTRB(5, 5, 2, 5),
+                                            child: Icon(
+                                              Icons.edit_document,
+                                              color: Colors.grey,
+                                              size: 15,
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.fromLTRB(
+                                                0, 5, 5, 5),
+                                            child: Text(textLoadList[index].doc),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text(textLoadList[index].createDate),
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Text(
+                                                textLoadList[index].updateDate),
+                                          ),
+                                          Text(textLoadList[index].updatedBy),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                          ));
-              },
+                            ));
+                },
+              ),
             ),
           ],
         ),
