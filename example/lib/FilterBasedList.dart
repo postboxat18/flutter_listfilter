@@ -55,7 +55,7 @@ class _FilterBasedListState extends State<FilterBasedList> {
               isRadio: false,
               primaryColor: Colors.blue,
               lineColor: Color(0xFFA9B5BB),
-              textList: textList,
+              dynamicList: textList,
               extraChipWidgets: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
