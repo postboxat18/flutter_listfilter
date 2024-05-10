@@ -132,61 +132,63 @@ class _FlutterListFilterState extends State<FlutterListFilter> {
         ],
 
         //FILTER
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              //USER FILTER
-              widget.extraChipWidgets,
-              //DYNAMIC FILTERS
-              for (var key in map.entries) ...[
-                Padding(
-                  padding: EdgeInsets.all(5),
-                  child: ElevatedButton(
-                      onPressed: () {
-                        showModalBottomSheet<void>(
-                            context: context,
-                            isDismissible: widget.isRadio,
-                            shape: const RoundedRectangleBorder(
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(10),
-                                    topRight: Radius.circular(10))),
-                            builder: (BuildContext context) =>
-                                openBottomSheet(key, map));
-                      },
-                      style: ElevatedButton.styleFrom(
-                          elevation: 0,
-                          padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
-                          backgroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(
+        Expanded(
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                //USER FILTER
+                widget.extraChipWidgets,
+                //DYNAMIC FILTERS
+                for (var key in map.entries) ...[
+                  Padding(
+                    padding: EdgeInsets.all(5),
+                    child: ElevatedButton(
+                        onPressed: () {
+                          showModalBottomSheet<void>(
+                              context: context,
+                              isDismissible: widget.isRadio,
+                              shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(10),
+                                      topRight: Radius.circular(10))),
+                              builder: (BuildContext context) =>
+                                  openBottomSheet(key, map));
+                        },
+                        style: ElevatedButton.styleFrom(
+                            elevation: 0,
+                            padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(
+                                  color: filterState.map[key.key] != null
+                                      ? widget.primaryColor
+                                      : widget.lineColor),
+                              borderRadius: BorderRadius.circular(55),
+                            )),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              key.key,
+                              style: TextStyle(
                                 color: filterState.map[key.key] != null
                                     ? widget.primaryColor
-                                    : widget.lineColor),
-                            borderRadius: BorderRadius.circular(55),
-                          )),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            key.key,
-                            style: TextStyle(
+                                    : Colors.black,
+                              ),
+                            ),
+                            Icon(
+                              Icons.arrow_drop_down_rounded,
                               color: filterState.map[key.key] != null
                                   ? widget.primaryColor
                                   : Colors.black,
                             ),
-                          ),
-                          Icon(
-                            Icons.arrow_drop_down_rounded,
-                            color: filterState.map[key.key] != null
-                                ? widget.primaryColor
-                                : Colors.black,
-                          ),
-                        ],
-                      )),
-                )
-              ]
-            ],
+                          ],
+                        )),
+                  )
+                ]
+              ],
+            ),
           ),
         ),
       ],
