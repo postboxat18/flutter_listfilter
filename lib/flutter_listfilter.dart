@@ -8,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'Bloc/flutter_list_filter_bloc.dart';
 
 class FlutterListFilter extends StatefulWidget {
-  final List<dynamic> textList;
+  final List<dynamic> dynamicList;
   final List<String> filterHeaderList;
   final dynamic builder;
   final Color primaryColor;
@@ -18,7 +18,7 @@ class FlutterListFilter extends StatefulWidget {
 
   const FlutterListFilter({
     super.key,
-    required this.textList,
+    required this.dynamicList,
     required this.filterHeaderList,
     this.isRadio = true,
     required this.primaryColor,
@@ -49,16 +49,16 @@ class _FlutterListFilterState extends State<FlutterListFilter> {
         builder: (context, filterState) {
           if (filterState is FilterLoadState) {
             List<dynamic> textLoadList = [];
-            textLoadList = widget.textList;
+            textLoadList = widget.dynamicList;
             if (filterState.map.isNotEmpty) {
-              textLoadList = widget.textList;
+              textLoadList = widget.dynamicList;
               bool isTrue = false;
               for (var key in filterState.map.entries) {
                 if (filterState.map[key.key] != null) {
                   List<String> list = filterState.map[key.key];
                   textLoadList = textLoadList
                       .where((element) =>
-                          list.any((e) => element.get(key.key) == e))
+                      list.any((e) => element.get(key.key) == e))
                       .toList();
                 }
               }
@@ -81,31 +81,30 @@ class _FlutterListFilterState extends State<FlutterListFilter> {
             }
             print("filterBasedList=>inside=>${textLoadList.length}");
 
-            return Expanded(
-                child: Column(
+            return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 //FILTER WIG
                 ChipState(
-                    widget.textList, widget.filterHeaderList, filterState),
+                    widget.dynamicList, widget.filterHeaderList, filterState),
                 widget.builder(textLoadList)
               ],
-            ));
+            );
           } else {
             return Container();
           }
         });
   }
 
-  ChipState(List<dynamic> textList, List<String> filterHeaderList,
+  ChipState(List<dynamic> dynamicList, List<String> filterHeaderList,
       FilterLoadState filterState) {
     Map<dynamic, dynamic> map = {};
     List<dynamic> uniqueList = [];
     var set = Set<String>();
     for (var value in filterHeaderList) {
       uniqueList =
-          textList.where((element) => set.add(element.get(value))).toList();
+          dynamicList.where((element) => set.add(element.get(value))).toList();
 
       map.addAll({value: uniqueList});
     }
@@ -121,20 +120,19 @@ class _FlutterListFilterState extends State<FlutterListFilter> {
               },
               child: (filterState.map.length) > 1
                   ? Text("Clear All",
-                      style: TextStyle(
-                        color: widget.primaryColor,
-                      ))
+                  style: TextStyle(
+                    color: widget.primaryColor,
+                  ))
                   : Text("Clear",
-                      style: TextStyle(
-                        color: widget.primaryColor,
-                      )),
+                  style: TextStyle(
+                    color: widget.primaryColor,
+                  )),
             ),
           ),
         ],
 
         //FILTER
-        Expanded(
-            child: SingleChildScrollView(
+        SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
@@ -190,7 +188,7 @@ class _FlutterListFilterState extends State<FlutterListFilter> {
               ]
             ],
           ),
-        )),
+        ),
       ],
     );
   }
