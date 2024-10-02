@@ -107,7 +107,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "8898e4ff33165f27ae88a5bfb88aa8fc58ea58d5"
+      resolved-ref: "9db3d554e42b4d642804e035ce86972bc1aa6876"
       url: "https://github.com/postboxat18/flutter_listfilter.git"
     source: git
     version: "0.0.5"
