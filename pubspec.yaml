@@ -1,6 +1,9 @@
 name: flutter_listfilter
-description: "Flutter Filter Based on Given List"
-version: 0.0.6
+description: "This package makes filtering lists a breeze by utilizing filter chips based on a user model list. The beauty of this tool is its simplicity – no need for complex functions or methods. Just provide the model and a list of strings to be filtered, and you're all set.
+Key Features:
+- Simple filtering without extra functions
+- Easy integration with user models"
+version: 0.0.7
 homepage: https://github.com/postboxat18/flutter_listfilter.git
 
 environment:

@@ -1,8 +1,6 @@
-library flutter_listfilter;
+library;
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'Bloc/flutter_list_filter_bloc.dart';
@@ -73,20 +71,20 @@ class _FlutterListFilterState extends State<FlutterListFilter> {
                     break;
                   }
                 }
-                print("filterBasedList=>load=?$isTrue");
+
                 if (isTrue) {
                   flutterListFilterBloc.add(FilterLoadEvent({}));
                 }
               }
             }
-            print("filterBasedList=>inside=>${textLoadList.length}");
+
 
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 //FILTER WIG
-                ChipState(
+                chipState(
                     widget.dynamicList, widget.filterHeaderList, filterState),
                 widget.builder(textLoadList)
               ],
@@ -97,11 +95,11 @@ class _FlutterListFilterState extends State<FlutterListFilter> {
         });
   }
 
-  ChipState(List<dynamic> dynamicList, List<String> filterHeaderList,
+  chipState(List<dynamic> dynamicList, List<String> filterHeaderList,
       FilterLoadState filterState) {
     Map<dynamic, dynamic> map = {};
     List<dynamic> uniqueList = [];
-    var set = Set<String>();
+    var set = <String>{};
     for (var value in filterHeaderList) {
       uniqueList =
           dynamicList.where((element) => set.add(element.get(value))).toList();
