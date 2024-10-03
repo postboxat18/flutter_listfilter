@@ -4,8 +4,9 @@ part of 'flutter_list_filter_bloc.dart';
 sealed class FlutterListFilterState {}
 
 final class FlutterListFilterInitial extends FlutterListFilterState {}
+
 class FilterLoadState extends FlutterListFilterState {
-  final  Map<dynamic,dynamic> map;
+  final Map<dynamic, dynamic> map;
 
   FilterLoadState(this.map);
 }
