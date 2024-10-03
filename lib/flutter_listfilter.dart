@@ -56,7 +56,7 @@ class _FlutterListFilterState extends State<FlutterListFilter> {
                   List<String> list = filterState.map[key.key];
                   textLoadList = textLoadList
                       .where((element) =>
-                      list.any((e) => element.get(key.key) == e))
+                          list.any((e) => element.get(key.key) == e))
                       .toList();
                 }
               }
@@ -77,7 +77,6 @@ class _FlutterListFilterState extends State<FlutterListFilter> {
                 }
               }
             }
-
 
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,13 +117,13 @@ class _FlutterListFilterState extends State<FlutterListFilter> {
               },
               child: (filterState.map.length) > 1
                   ? Text("Clear All",
-                  style: TextStyle(
-                    color: widget.primaryColor,
-                  ))
+                      style: TextStyle(
+                        color: widget.primaryColor,
+                      ))
                   : Text("Clear",
-                  style: TextStyle(
-                    color: widget.primaryColor,
-                  )),
+                      style: TextStyle(
+                        color: widget.primaryColor,
+                      )),
             ),
           ),
         ],
