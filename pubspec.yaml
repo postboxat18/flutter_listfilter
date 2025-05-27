@@ -1,6 +1,6 @@
 name: flutter_listfilter
 description: "This package makes filtering lists a breeze by utilizing filter chips based on a user model list."
-version: 0.0.10
+version: 0.0.11
 homepage: https://github.com/postboxat18/flutter_listfilter.git
 
 environment:
@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_bloc: ^8.1.4
+  flutter_bloc: ^9.1.1
 
 dev_dependencies:
   flutter_test:
