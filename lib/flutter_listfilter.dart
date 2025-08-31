@@ -10,6 +10,7 @@ class FlutterListFilter extends StatefulWidget {
   final List<String> filterHeaderList;
   final dynamic builder;
   final Color primaryColor;
+  final Color backgroundColor;
   final Color lineColor;
   final bool isRadio;
   final Widget extraChipWidgets;
@@ -20,6 +21,7 @@ class FlutterListFilter extends StatefulWidget {
     required this.filterHeaderList,
     this.isRadio = true,
     required this.primaryColor,
+    this.backgroundColor = Colors.white,
     required this.lineColor,
     required this.builder,
     this.extraChipWidgets = const Row(
@@ -155,7 +157,7 @@ class _FlutterListFilterState extends State<FlutterListFilter> {
                         style: ElevatedButton.styleFrom(
                             elevation: 0,
                             padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
-                            backgroundColor: Colors.white,
+                            backgroundColor:widget.backgroundColor,
                             shape: RoundedRectangleBorder(
                               side: BorderSide(
                                   color: filterState.map[key.key] != null

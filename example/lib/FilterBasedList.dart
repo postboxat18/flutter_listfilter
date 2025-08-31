@@ -55,6 +55,7 @@ class _FilterBasedListState extends State<FilterBasedList> {
             Expanded(
               child: FlutterListFilter(
                 isRadio: false,
+                backgroundColor: Colors.blueGrey,
                 primaryColor: Colors.blue,
                 lineColor: Color(0xFFA9B5BB),
                 dynamicList: textList,
@@ -85,7 +86,6 @@ class _FilterBasedListState extends State<FilterBasedList> {
                     )),
                 filterHeaderList: filterHeaderList,
                 builder: (List<dynamic> textLoadList) {
-                  print("filterBasedList=>outSide=>${textLoadList.length}");
                   return Expanded(
                       child: textLoadList.isEmpty
                           ? Center(
